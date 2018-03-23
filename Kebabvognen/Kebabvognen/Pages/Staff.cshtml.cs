@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Kebabvognen.Pages
 {
-    public class IndexModel : PageModel
+    public class StaffModel : PageModel
     {
         public void OnGet()
         {

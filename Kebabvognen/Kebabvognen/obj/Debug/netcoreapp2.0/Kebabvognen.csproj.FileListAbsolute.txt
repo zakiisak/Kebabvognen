@@ -9,3 +9,14 @@ C:\Users\zbclikam1\source\repos\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\
 C:\Users\zbclikam1\source\repos\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.AssemblyInfo.cs
 C:\Users\zbclikam1\source\repos\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.dll
 C:\Users\zbclikam1\source\repos\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.pdb
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.csprojResolveAssemblyReference.cache
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.csproj.CoreCompileInputs.cache
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.AssemblyInfoInputs.cache
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.AssemblyInfo.cs
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.dll
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\obj\Debug\netcoreapp2.0\Kebabvognen.pdb
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\bin\Debug\netcoreapp2.0\Kebabvognen.deps.json
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\bin\Debug\netcoreapp2.0\Kebabvognen.runtimeconfig.json
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\bin\Debug\netcoreapp2.0\Kebabvognen.runtimeconfig.dev.json
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\bin\Debug\netcoreapp2.0\Kebabvognen.dll
+C:\Users\zbclikam1\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\bin\Debug\netcoreapp2.0\Kebabvognen.pdb
