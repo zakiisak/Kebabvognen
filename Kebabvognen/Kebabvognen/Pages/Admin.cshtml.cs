@@ -11,7 +11,7 @@ namespace Kebabvognen.Pages
     {
         public void OnGet()
         {
-
+            
         }
     }
 }

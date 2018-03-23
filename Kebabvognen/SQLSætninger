@@ -1,4 +1,5 @@
-CREATE DATABASE Kebabvogn;
+/*CREATE DATABASE Kebabvogn;*/
+
 USE Kebabvogn;
 
 CREATE TABLE OpeningHours (
@@ -22,7 +23,7 @@ CREATE TABLE Menu (
 );
 
 CREATE TABLE Ingredients (
-    Name varchar(30) NOT NULL,
+    Name varchar(100) NOT NULL,
     MenuID INTEGER NOT NULL,
     FOREIGN KEY (MenuID) REFERENCES Menu(ID)
 );
@@ -47,37 +48,37 @@ INSERT INTO OpeningHours VALUES (6, '10:00:00', '19:00:00');
 INSERT INTO OpeningHours VALUES (7, NULL, NULL);
 
 
-INSERT INTO Staff VALUES ("Recep", '1990-05-08', '2016-11-17');
+INSERT INTO Staff VALUES ('Recep', '1990-05-08', '2016-11-17');
 --Missing the other
 
-INSERT INTO Menu VALUES ("Pita", 25);
-INSERT INTO Menu VALUES ("Durum", 25);
-INSERT INTO Menu VALUES ("Drikkevarer", 10);
+INSERT INTO Menu VALUES ('Pita', 25);
+INSERT INTO Menu VALUES ('Durum', 25);
+INSERT INTO Menu VALUES ('Drikkevarer', 10);
 
-INSERT INTO Ingredients VALUES ("Hvedebrød", 1);
-INSERT INTO Ingredients VALUES ("Kebabkød (indh: hvede, mælk, selleri og soja)", 1);
-INSERT INTO Ingredients VALUES ("Iceberg", 1);
-INSERT INTO Ingredients VALUES ("Hvidløgsdressing/Thousand Islands/Creme Fraice", 1);
-INSERT INTO Ingredients VALUES ("Tomat", 1);
-INSERT INTO Ingredients VALUES ("Rødløg", 1);
-INSERT INTO Ingredients VALUES ("Agurk", 1);
+INSERT INTO Ingredients VALUES ('Hvedebrød', 1);
+INSERT INTO Ingredients VALUES ('Kebabkød (indh: hvede, mælk, selleri og soja)', 1);
+INSERT INTO Ingredients VALUES ('Iceberg', 1);
+INSERT INTO Ingredients VALUES ('Hvidløgsdressing/Thousand Islands/Creme Fraice', 1);
+INSERT INTO Ingredients VALUES ('Tomat', 1);
+INSERT INTO Ingredients VALUES ('Rødløg', 1);
+INSERT INTO Ingredients VALUES ('Agurk', 1);
 
-INSERT INTO Ingredients VALUES ("Hvedebrød", 2);
-INSERT INTO Ingredients VALUES ("Kebabkød (indh: hvede, mælk, selleri og soja)", 2);
-INSERT INTO Ingredients VALUES ("Iceberg", 2);
-INSERT INTO Ingredients VALUES ("Hvidløgsdressing/Thousand Islands/Creme Fraice", 2);
-INSERT INTO Ingredients VALUES ("Tomat", 2);
-INSERT INTO Ingredients VALUES ("Rødløg", 2);
-INSERT INTO Ingredients VALUES ("Agurk", 2);
+INSERT INTO Ingredients VALUES ('Hvedebrød', 2);
+INSERT INTO Ingredients VALUES ('Kebabkød (indh: hvede, mælk, selleri og soja)', 2);
+INSERT INTO Ingredients VALUES ('Iceberg', 2);
+INSERT INTO Ingredients VALUES ('Hvidløgsdressing/Thousand Islands/Creme Fraice"', 2);
+INSERT INTO Ingredients VALUES ('Tomat', 2);
+INSERT INTO Ingredients VALUES ('Rødløg', 2);
+INSERT INTO Ingredients VALUES ('Agurk', 2);
 
-INSERT INTO Ingredients VALUES ("Kildevand", 3);
-INSERT INTO Ingredients VALUES ("Pepsi", 3);
-INSERT INTO Ingredients VALUES ("Pepsi MAX", 3);
-INSERT INTO Ingredients VALUES ("Faxe Kondi", 3);
-INSERT INTO Ingredients VALUES ("Coca Cola", 3);
-INSERT INTO Ingredients VALUES ("Fanta", 3);
+INSERT INTO Ingredients VALUES ('Kildevand', 3);
+INSERT INTO Ingredients VALUES ('Pepsi', 3);
+INSERT INTO Ingredients VALUES ('Pepsi MAX', 3);
+INSERT INTO Ingredients VALUES ('Faxe Kondi', 3);
+INSERT INTO Ingredients VALUES ('Coca Cola', 3);
+INSERT INTO Ingredients VALUES ('Fanta', 3);
 
 
-INSERT INTO Reviews VALUES ("Allan Nørfelt", 4, "God og hurtig kebab. Smag for pengene!", '2017-08-21');
-INSERT INTO Reviews VALUES ("Sissel Shulz", 2, "Dårlig hygiejne", '2017-10-28');
-INSERT INTO Reviews VALUES ("Jonas Sørensen", 5, "Må prøves! Bedste kebab jeg i mit liv har smagt!", '2018-02-15');
+INSERT INTO Reviews VALUES ('Allan Nørfelt', 4, 'God og hurtig kebab. Smag for pengene!', '2017-08-21');
+INSERT INTO Reviews VALUES ('Sissel Shulz', 2, 'Dårlig hygiejne', '2017-10-28');
+INSERT INTO Reviews VALUES ('Jonas Sørensen', 5, 'Må prøves! Bedste kebab jeg i mit liv har smagt!', '2018-02-15');

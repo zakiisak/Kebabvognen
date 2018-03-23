@@ -1,21 +1,37 @@
 ﻿@page
 @model ContactModel
 @{
+
     ViewData["Title"] = "Admin";
+
+    var db = WebMatrix.Data.Database.OpenConnectionString("Data Source=localhost\\SQLEXPRESS;Initial Catalog=Kebabvogn;Integrated Security=True");
+    var selectQueryString = "SELECT * FROM Ingredients ORDER BY Name";
 }
 <h2>@ViewData["Title"]</h2>
 <br />
 
-<img src="~/images/Recep.jpeg" alt="Recep" style="width:160px;height:250px;"/>
+<img src="~/images/Recep.jpeg" alt="Recep" style="width:160px;height:250px;" />
 <h4>Recep </h4>
 <h4>30 år </h4>
 <br />
 <br />
 <br />
 
-@{
-    
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    @foreach(var row in db.Query(selectQueryString))
+{
+    <tr>
+        <td>@row.Name</td>
+        <td align="right">@row.Price</td>
+    </tr>
 }
+</table>
 
 <address>
     Huginsvej 2 B, 4100 Ringsted<br />
