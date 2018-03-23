@@ -12536,25 +12536,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zbcisand3\\.nuget\\packages\\": {},
+    "C:\\Users\\zbclikam1\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\zbcisand3\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\Kebabvognen.csproj",
+      "projectUniqueName": "C:\\Users\\zbclikam1\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\Kebabvognen.csproj",
       "projectName": "Kebabvognen",
-      "projectPath": "C:\\Users\\zbcisand3\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\Kebabvognen.csproj",
-      "packagesPath": "C:\\Users\\zbcisand3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zbcisand3\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\obj\\",
+      "projectPath": "C:\\Users\\zbclikam1\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\Kebabvognen.csproj",
+      "packagesPath": "C:\\Users\\zbclikam1\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zbclikam1\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\zbcisand3\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zbclikam1\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
