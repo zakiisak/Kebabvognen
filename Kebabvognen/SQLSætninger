@@ -1,0 +1,41 @@
+CREATE DATABASE Kebabvognen;
+USE Kebabvognen;
+
+CREATE TABLE OpeningHours (
+    Day varchar(12) NOT NULL,
+    StartTime TIME NOT NULL,
+    EndTime TIME NOT NULL
+);
+
+CREATE TABLE Staff (
+    Name varchar(50) NOT NULL,
+    Born DATETIME,
+    EmploymentDate DATE
+);
+
+CREATE TABLE Menu (
+    Name varchar(20) NOT NULL,
+    Price INTEGER,
+    ID INTEGER IDENTITY(1, 1) PRIMARY KEY NOT NULL
+);
+
+CREATE TABLE Ingredients (
+    Name varchar(30) NOT NULL,
+    MenuID INTEGER NOT NULL,
+    FOREIGN KEY (MenuID) REFERENCES Menu(ID)
+);
+
+CREATE TABLE Reviews (
+    ReviewerName varchar(50),
+    Rating TINYINT NOT NULL,
+    Description varchar(200),
+    ReviewDate DATE NOT NULL
+);
+
+
+
+--Add Data
+
+
+INSERT INTO Menu VALUES ("Pita", 25);
+INSERT INTO Menu VALUES ("Durum", 25);
