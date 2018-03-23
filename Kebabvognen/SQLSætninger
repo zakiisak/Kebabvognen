@@ -1,11 +1,12 @@
-CREATE DATABASE Kebabvognen;
-USE Kebabvognen;
+CREATE DATABASE Kebabvogn;
+USE Kebabvogn;
 
 CREATE TABLE OpeningHours (
     /*1 is monday and 7 is sunday*/
     DayNum TINYINT PRIMARY KEY NOT NULL,
-    StartTime TIME NOT NULL,
-    EndTime TIME NOT NULL
+    /*If the following fields are null, it simply means that the kebabvogn isn't open on this day. */
+    StartTime TIME,
+    EndTime TIME
 );
 
 CREATE TABLE Staff (
@@ -43,7 +44,7 @@ INSERT INTO OpeningHours VALUES (3, '10:00:00', '19:00:00');
 INSERT INTO OpeningHours VALUES (4, '10:00:00', '19:00:00');
 INSERT INTO OpeningHours VALUES (5, '10:00:00', '19:00:00');
 INSERT INTO OpeningHours VALUES (6, '10:00:00', '19:00:00');
-INSERT INTO OpeningHours VALUES (7, '10:00:00', '19:00:00');
+INSERT INTO OpeningHours VALUES (7, NULL, NULL);
 
 
 INSERT INTO Staff VALUES ("Recep", '1990-05-08', '2016-11-17');
