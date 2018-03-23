@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "86a062ac6f695f109b50d8949c1e6b958f65bfbe"
+    "signature": "1bb21383dfb0616c167e098b4d1f9d16796e1f63"
   },
   "compilationOptions": {
     "defines": [
@@ -24,7 +24,8 @@
       "Kebabvognen/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.6",
-          "Microsoft.NETCore.App": "2.0.0"
+          "Microsoft.NETCore.App": "2.0.0",
+          "WebMatrix.WebData": "2.0.30506"
         },
         "runtime": {
           "Kebabvognen.dll": {}
@@ -118,6 +119,25 @@
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages.Data/2.0.20710": {
+        "runtime": {
+          "lib/net40/WebMatrix.Data.dll": {}
+        },
+        "compile": {
+          "lib/net40/WebMatrix.Data.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages.WebData/2.0.20710": {
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.Data": "2.0.20710"
+        },
+        "runtime": {
+          "lib/net40/WebMatrix.WebData.dll": {}
+        },
+        "compile": {
+          "lib/net40/WebMatrix.WebData.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.0.2": {
@@ -3780,6 +3800,11 @@
           "System.Xml.XPath": "4.3.0"
         }
       },
+      "WebMatrix.WebData/2.0.30506": {
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.WebData": "2.0.20710"
+        }
+      },
       "WindowsAzure.Storage/8.1.4": {
         "dependencies": {
           "Microsoft.Data.OData": "5.8.2",
@@ -4005,6 +4030,20 @@
       "sha512": "sha512-RWxdX90MY6tNF8S5lwRvJcHiBMIWwVLCxd4TGIEl3X0yAKaolY2vs4zTCvyCIVkEAMs1aInTgWkYwOjzYvAHWw==",
       "path": "microsoft.applicationinsights.dependencycollector/2.4.1",
       "hashPath": "microsoft.applicationinsights.dependencycollector.2.4.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages.Data/2.0.20710": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PTwS5C1vF69FDikWhUkJZ4qb96yxtdVuVR90Hjt7e/GDNVOeR7tXMYWHs9cPP0v35EiO+V6BUj1c8dNCUXW7Ag==",
+      "path": "microsoft.aspnet.webpages.data/2.0.20710",
+      "hashPath": "microsoft.aspnet.webpages.data.2.0.20710.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages.WebData/2.0.20710": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BZsx1iI2qZ9c21QKD3KAk7BGrGQ3gkGw8a7AdkmDNJoK+RyEcEy46lyzpyiD7BkVKvlszO7er2m2nR2NWK6u9Q==",
+      "path": "microsoft.aspnet.webpages.webdata/2.0.20710",
+      "hashPath": "microsoft.aspnet.webpages.webdata.2.0.20710.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.0.2": {
       "type": "package",
@@ -5972,6 +6011,13 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "WebMatrix.WebData/2.0.30506": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kDz6OjnVNm/asletyqpHmb0y/56KduvxWhi6KJdAgnT45LZPu6IUETXNISA1icfoRwBWrUirQxAZw6JwhYrqoQ==",
+      "path": "webmatrix.webdata/2.0.30506",
+      "hashPath": "webmatrix.webdata.2.0.30506.nupkg.sha512"
     },
     "WindowsAzure.Storage/8.1.4": {
       "type": "package",
