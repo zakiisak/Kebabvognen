@@ -18,7 +18,7 @@ CREATE TABLE Staff (
 );
 
 CREATE TABLE Menu (
-	ID INTEGER IDENTITY(1, 1) PRIMARY KEY NOT NULL
+	ID INTEGER IDENTITY(1, 1) PRIMARY KEY NOT NULL,
     Name varchar(20) NOT NULL,
     Price INTEGER,
 	imageUrl varchar(300)
@@ -55,9 +55,9 @@ INSERT INTO OpeningHours VALUES (7, NULL, NULL);
 INSERT INTO Staff VALUES ('Recep', '1990-05-08', '2016-11-17');
 --Missing the other
 
-INSERT INTO Menu VALUES ('Pita', 25);
-INSERT INTO Menu VALUES ('Durum', 25);
-INSERT INTO Menu VALUES ('Drikkevarer', 10);
+INSERT INTO Menu VALUES ('Pita', 25, 'images/kebab.jpg');
+INSERT INTO Menu VALUES ('Durum', 25, 'durum.jpg');
+INSERT INTO Menu VALUES ('Drikkevarer', 10, 'drikkevarer.jpg');
 
 INSERT INTO Ingredients VALUES ('Hvedebrød', 1);
 INSERT INTO Ingredients VALUES ('Kebabkød (indh: hvede, mælk, selleri og soja)', 1);
