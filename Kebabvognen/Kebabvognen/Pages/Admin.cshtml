@@ -3,9 +3,6 @@
 @{
 
     ViewData["Title"] = "Admin";
-
-    var db = WebMatrix.Data.Database.Open("Kebabvogn");
-    var selectQueryString = "SELECT * FROM Ingredients ORDER BY Name";
 }
 <h2>@ViewData["Title"]</h2>
 <br />
@@ -24,11 +21,11 @@
         <th>Description</th>
         <th>Price</th>
     </tr>
-    @foreach(var row in db.Query(selectQueryString))
+    @foreach(Menu menu in AdapterManager.GetMenus())
 {
     <tr>
-        <td>@row.Name</td>
-        <td align="right">@row.Price</td>
+        <td>@menu.Name</td>
+        <td align="right">@menu.Price</td>
     </tr>
 }
 </table>
