@@ -20,6 +20,7 @@ namespace Kebabvognen
         public abstract void SetOpeningHours(OpeningHours hours);
         public abstract void AddReview(Review review);
         public abstract void AddEmployee(Employee employee);
+        public abstract void RemoveEmployee(int id);
 
 
         
