@@ -39,10 +39,10 @@ namespace Kebabvognen
             {
                 while (menuReader.Read())
                 {
-                    Debug.WriteLine(menuReader.GetValue(0));
-                    string menuName = menuReader.GetValue(0).ToString();
-                    int menuPrice = (int)menuReader.GetValue(1);
-                    int menuID = (int)menuReader.GetValue(2);
+                    int menuID = (int)menuReader.GetInt32(0);
+                    string menuName = menuReader.GetString(1);
+                    int menuPrice = menuReader.GetInt32(2);
+                    string imageUrl = menuReader.GetString(3);
 
                     List<Ingredient> ingredients = new List<Ingredient>();
                     SqlDataReader ingredientReader = Query("SELECT * FROM Ingredients Where MenuID = " + menuID);
@@ -56,7 +56,7 @@ namespace Kebabvognen
                         }
                     }
                     ingredientReader.Close();
-                    Menu menu = new Menu(menuName, menuPrice, ingredients.ToArray());
+                    Menu menu = new Menu(menuName, menuPrice, imageUrl, ingredients.ToArray());
                     menus.Add(menu);
                 } 
             }
@@ -73,6 +73,49 @@ namespace Kebabvognen
             return com.ExecuteReader();
         }
 
+        public override OpeningHours[] GetOpeningHours()
+        {
+            throw new NotImplementedException();
+        }
 
+        public override Review[] GetReviews()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Employee[] GetEmployees()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AddMenu(Menu menu)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveMenu(int menu)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SetOpeningHours(OpeningHours hours)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AddReview(Review review)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void AddEmployee(Employee employee)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveEmployee(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
