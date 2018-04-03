@@ -20,7 +20,8 @@ CREATE TABLE Staff (
 CREATE TABLE Menu (
 	ID INTEGER IDENTITY(1, 1) PRIMARY KEY NOT NULL
     Name varchar(20) NOT NULL,
-    Price INTEGER
+    Price INTEGER,
+	imageUrl varchar(300)
 );
 
 CREATE TABLE Ingredients (
