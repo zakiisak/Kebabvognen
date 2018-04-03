@@ -15,6 +15,7 @@ namespace Kebabvognen
         {
             Name = name;
             Price = price;
+            Ingredients = new List<Ingredient>();
             for (int i = 0; i < ingredients.Length; i++)
                 Ingredients.Add(ingredients[i]);
         }
