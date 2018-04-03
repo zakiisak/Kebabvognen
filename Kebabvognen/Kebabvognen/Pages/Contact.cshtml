@@ -6,19 +6,26 @@
 <h2>@ViewData["Title"]</h2>
 
 
-
+<br />
 <div id="map" style="width:400px;height:400px">Vi bor her: </div>
-<script>
-    function myMap() {
-        var mapOptions = {
-            center: new google.maps.LatLng(55.428588, 11.788501),
-            zoom: 17,
-            mapTypeId: google.maps.MapTypeId.HYBRID
-        }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    }
+    <script>
+function myMap() {
+  var mapCanvas = document.getElementById("map");
+  var myCenter = new google.maps.LatLng(55.428482, 11.788611); 
+  var mapOptions = {center: myCenter, zoom: 19};
+  var map = new google.maps.Map(mapCanvas,mapOptions);
+  var marker = new google.maps.Marker({
+    position: myCenter,
+    animation: google.maps.Animation.BOUNCE
+  });
+    marker.setMap(map);
+    map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdWZ2lKQ0NzIBpWSS7l-xaUrxeHrLY4eI&callback=myMap"></script>
+<p> Vi er på den røde hoppende prik! </p>
+<br />
+
 
 <address>
     Huginsvej 2 B, 4100 Ringsted <br />
