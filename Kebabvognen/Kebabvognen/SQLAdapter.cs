@@ -9,7 +9,7 @@ namespace Kebabvognen
 {
     public class SQLAdapter : DalAdapter
     {
-        private string connectionString = @"Persist Security Info=False;Integrated Security=true;Initial Catalog=Kebabvogn;server=Localhost\SQLEXPRESS;Connection Timeout=3000";
+        private string connectionString = @"Persist Security Info=False;Integrated Security=true;Initial Catalog=Kebabvogn;server=(localdb)\MSSQLLocalDB;Connection Timeout=3000";
         private bool running;
 
         public SQLAdapter()
