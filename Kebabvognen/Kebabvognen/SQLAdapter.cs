@@ -50,7 +50,7 @@ namespace Kebabvognen
                     {
                         while (ingredientReader.Read())
                         {
-                            string name = ingredientReader.GetValue(0).ToString();
+                            string name = ingredientReader.GetValue(1).ToString();
                             Ingredient ingredient = new Ingredient(name);
                             ingredients.Add(ingredient);
                         }
@@ -75,12 +75,40 @@ namespace Kebabvognen
 
         public override OpeningHours[] GetOpeningHours()
         {
-            throw new NotImplementedException();
+            SqlDataReader reader = Query("SELECT * FROM OpeningHours");
+            List<OpeningHours> openingHours = new List<OpeningHours>();
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    byte dayNum = reader.GetByte(0);
+                    TimeSpan startTime = reader.GetTimeSpan(1);
+                    TimeSpan endTime = reader.GetTimeSpan(2);
+                    OpeningHours day = new OpeningHours(dayNum, startTime, endTime);
+                    openingHours.Add(day);
+                }
+            }
+            return openingHours.ToArray();
         }
 
         public override Review[] GetReviews()
         {
-            throw new NotImplementedException();
+            SqlDataReader reader = Query("SELECT * FROM Reviews");
+            List<Review> reviews = new List<Review>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string reviewerName = reader.GetString(1);
+                    byte rating = reader.GetByte(2);
+                    string description = reader.GetString(3);
+                    DateTime reviewDate = reader.GetDateTime(4);
+                    Review review = new Review(id, reviewerName, rating, description, reviewDate);
+                    reviews.Add(review);
+                }
+            }
+            return reviews.ToArray();
         }
 
         public override Employee[] GetEmployees()
