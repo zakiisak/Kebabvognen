@@ -4,7 +4,7 @@
 
     ViewData["Title"] = "Admin";
 
-    var db = WebMatrix.Data.Database.OpenConnectionString("Data Source=localhost\\SQLEXPRESS;Initial Catalog=Kebabvogn;Integrated Security=True");
+    var db = WebMatrix.Data.Database.Open("Kebabvogn");
     var selectQueryString = "SELECT * FROM Ingredients ORDER BY Name";
 }
 <h2>@ViewData["Title"]</h2>
