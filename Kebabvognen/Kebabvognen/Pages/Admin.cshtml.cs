@@ -11,7 +11,12 @@ namespace Kebabvognen.Pages
     {
         public void OnGet()
         {
-            
+            System.Diagnostics.Debug.WriteLine("ON GET!");
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("[PAGE-LOAD] Sender: " + sender);
         }
     }
 }

@@ -1,1 +1,108 @@
-﻿
+﻿@page
+@model AdminModel
+@{
+    Layout = "~/Pages/_AdminLayout.cshtml";
+    ViewData["Title"] = "Home page";
+}
+
+<br />
+<h2>Åbningstider</h2>
+@{
+    OpeningHours[] hours = AdapterManager.GetOpeningHours();
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Dag</th>
+                <th scope="col">Fra</th>
+                <th scope="col">Til</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < hours.Length; i++)
+            {
+                OpeningHours dayHours = hours[i];
+                <tr>
+                    <th scope="row">@dayHours.GetDayString()</th>
+                    <td id="OpeningHours @dayHours.Day StartTime" class="editable" contenteditable="true">@dayHours.From</td>
+                    <td id="OpeningHours @dayHours.Day EndTime" class="editable" contenteditable="true">@dayHours.To</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h2>Menu</h2>
+@{
+    Menu[] menus = AdapterManager.GetMenus();
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Navn</th>
+                <th scope="col">Pris</th>
+                <th scope="col">Billede</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < menus.Length; i++)
+            {
+                Menu menu = menus[i];
+                <tr>
+                    <th id="Menu @menu.Id ID" class="editable" contenteditable="true" scope="row">@menu.Id</th>
+                    <td id="Menu @menu.Id Name" class="editable" contenteditable="true">@menu.Name</td>
+                    <td id="Menu @menu.Id Price" class="editable" contenteditable="true">@menu.Price</td>
+                    <td id="Menu @menu.Id imageUrl" class="editable" contenteditable="true">@menu.ImageUrl</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+    <button type="button" onclick="javascript:__doPostBack(changedElements,'')" class="btn btn-default">Save Changes</button>
+
+<script>
+    var changedElements = {};
+    var elements = document.getElementsByClassName('editable');
+    for (var i = 0; i < elements.length; i++) {
+        console.log("This totally happens!");
+        elements[i].addEventListener('keypress', function (evt) {
+            changedElements[evt.target.id] = evt.target;
+            if (evt.which === 13) {
+                evt.preventDefault();
+            }
+        });
+    }
+
+    function saveChanges() {
+        console.log("hejsa!");
+        for (var i = 0; i < changedElements.length; i++) {
+            
+        }
+    }
+</script>
+
+<div ng-app="myapp" ng-controller="appctrl">
+    <label>Name:</label>
+    <edit-label value="name" type="text" value-changed="onValueChanged(value, done)">
+        <div></div>
+    </edit-label>
+    <!--   <br/><button ng-click="showVal()">scope name prop</button> -->
+    <script type="text/ng-template" id="edit-label.html">
+        <div class="edit-label">
+            <span ng-if="$ctrl.mode === 'View' || $ctrl.mode === 'Updating'" ng-class="['viewer', {updating: $ctrl.mode === 'Updating'}]" ng-click="$ctrl.onEdit()">
+                <span class="view-label">{{$ctrl.value}}</span>
+                <span class="overlay-edit-icon fa fa-pencil"></span>
+                <i class="overlay-spinner fa fa-spinner fa-spin"></i>
+            </span>
+            <div ng-if="$ctrl.mode === 'Edit'" class="editor">
+                <input type="text" ng-model="$ctrl.value" />
+                <div class="save-options">
+                    <button type="submit" class="submit" ng-click="$ctrl.onUpdate()"><i class="fa fa-check"></i></button>
+                    <button type="cancel" class="cancel" ng-click="$ctrl.cancelEdit()"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+    </script>
+</div>

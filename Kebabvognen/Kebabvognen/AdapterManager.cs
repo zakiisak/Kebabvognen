@@ -26,6 +26,12 @@ namespace Kebabvognen
             return adapter.GetMenus();
         }
 
+        public static OpeningHours[] GetOpeningHours()
+        {
+            AssertStart();
+            return adapter.GetOpeningHours();
+        }
+
         public static void Dispose()
         {
             if(adapter.IsRunning())

@@ -39,13 +39,14 @@ namespace Kebabvognen
             {
                 while (menuReader.Read())
                 {
-                    int menuID = (int)menuReader.GetInt32(0);
+                    int menuId = (int)menuReader.GetInt32(0);
                     string menuName = menuReader.GetString(1);
                     int menuPrice = menuReader.GetInt32(2);
                     string imageUrl = menuReader.GetString(3);
+                    Debug.WriteLine("Image URL " + imageUrl);
 
                     List<Ingredient> ingredients = new List<Ingredient>();
-                    SqlDataReader ingredientReader = Query("SELECT * FROM Ingredients Where MenuID = " + menuID);
+                    SqlDataReader ingredientReader = Query("SELECT * FROM Ingredients Where MenuID = " + menuId);
                     if (ingredientReader.HasRows)
                     {
                         while (ingredientReader.Read())
@@ -56,7 +57,7 @@ namespace Kebabvognen
                         }
                     }
                     ingredientReader.Close();
-                    Menu menu = new Menu(menuName, menuPrice, imageUrl, ingredients.ToArray());
+                    Menu menu = new Menu(menuId, menuName, menuPrice, imageUrl, ingredients.ToArray());
                     menus.Add(menu);
                 } 
             }
@@ -82,8 +83,8 @@ namespace Kebabvognen
                 while(reader.Read())
                 {
                     byte dayNum = reader.GetByte(0);
-                    TimeSpan startTime = reader.GetTimeSpan(1);
-                    TimeSpan endTime = reader.GetTimeSpan(2);
+                    TimeSpan startTime = reader.IsDBNull(1) == false ? reader.GetTimeSpan(1) : TimeSpan.MinValue;
+                    TimeSpan endTime = reader.IsDBNull(2) == false ? reader.GetTimeSpan(2) : TimeSpan.MinValue;
                     OpeningHours day = new OpeningHours(dayNum, startTime, endTime);
                     openingHours.Add(day);
                 }
