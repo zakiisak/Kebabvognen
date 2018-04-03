@@ -11,24 +11,27 @@ CREATE TABLE OpeningHours (
 );
 
 CREATE TABLE Staff (
+	ID INTEGER PRIMARY KEY IDENTITY(1, 1) NOT NULL,
     Name varchar(50) NOT NULL,
     Born DATE,
     EmploymentDate DATE
 );
 
 CREATE TABLE Menu (
+	ID INTEGER IDENTITY(1, 1) PRIMARY KEY NOT NULL
     Name varchar(20) NOT NULL,
-    Price INTEGER,
-    ID INTEGER IDENTITY(1, 1) PRIMARY KEY NOT NULL
+    Price INTEGER
 );
 
 CREATE TABLE Ingredients (
+	ID INTEGER PRIMARY KEY IDENTITY(1, 1) NOT NULL,	
     Name varchar(100) NOT NULL,
     MenuID INTEGER NOT NULL,
     FOREIGN KEY (MenuID) REFERENCES Menu(ID)
 );
 
 CREATE TABLE Reviews (
+	ID INTEGER PRIMARY KEY IDENTITY(1, 1) NOT NULL,
     ReviewerName varchar(50),
     Rating TINYINT NOT NULL,
     Description varchar(200),
