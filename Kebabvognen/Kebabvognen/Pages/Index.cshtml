@@ -5,48 +5,54 @@
 }
 
 <br />
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+<div id="myCarousel" class="smaller carousel slide center-block" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
+        @{
+            Review[] reviews = AdapterManager.Get5NewestReviews();
+            for (int i = 0; i < reviews.Length; i++)
+            {
+                if (i == 0)
+                {
+                    <li data-target="#myCarousel" data-slide-to="@i" class="active"></li>
+
+                }
+                else
+                {
+                    <li data-target="#myCarousel" data-slide-to="@i"></li>
+                }
+            }
+        }
     </ol>
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/kebabvognen.jpg" style="width: 100%; height: auto;"/>
-            <div class="carousel-caption" role="option">
-                <div>
-                    <p>
-                        10/10 bedste sted
-                    </p>
+    @{
+        for (int i = 0; i < reviews.Length; i++)
+        {
+            string active = i == 0 ? "active" : "";
+            <div class="item @active">
+            
+                <img src="~/images/kebabvognen.jpg" style="width: 100%; height: auto;" />
+                <div class="carousel-caption" role="option">
+                    <div>
+                        <p class="niceText">
+                            @reviews[i].Description
+                        </p>
+                        @{int diff = 5 - reviews[i].Rating;
+                            for (int k = 0; k < reviews[i].Rating; k++)
+                            {
+                                <span class="glyphicon glyphicon-star"> </span>
+                            }
+                            for(int k = 0; k < diff; k++)
+                            {
+                                <span class="glyphicon glyphicon-star-empty"> </span>
+                            }
+                        }
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="item">
-            <img src="~/images/kebabvognen.jpg" style="width: 100%; height: auto;" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    10/10 bedste sted
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/kebabvognen.jpg" style="width: 100%; height: auto;"/>
-            <div class="carousel-caption" role="option">
-                <p>
-                    10/10 bedste sted
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/kebabvognen.jpg" style="width: 100%; height: auto;" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    10/10 bedste sted
-                </p>
-            </div>
-        </div>
+        }
+    }
+    </div>
     </div>
     <!--
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -58,8 +64,6 @@
         <span class="sr-only">Next</span>
     </a>
         -->
-
-</div>
 
 <div class="row">
     <div class="col-md-12 text-center">
@@ -107,3 +111,5 @@
     </div>
         -->
 </div>
+
+<div class="doner_back"> </div>

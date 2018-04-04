@@ -59,17 +59,17 @@
     </table>
 }
 
-
-    <button type="button" onclick="javascript:__doPostBack(changedElements,'')" class="btn btn-default">Save Changes</button>
-
+    <form method="post" runat="server">
+        <asp:button ID="RequirePostBackScriptLink" type="button" onclick="javascript:__doPostBack('saveChanges',changedElements)" class="btn btn-default" runat="server">Save Changes</asp:button>
+    </form>
 <script>
     var changedElements = {};
     var elements = document.getElementsByClassName('editable');
     for (var i = 0; i < elements.length; i++) {
-        console.log("This totally happens!");
         elements[i].addEventListener('keypress', function (evt) {
             changedElements[evt.target.id] = evt.target;
             if (evt.which === 13) {
+                evt.target.blur();
                 evt.preventDefault();
             }
         });

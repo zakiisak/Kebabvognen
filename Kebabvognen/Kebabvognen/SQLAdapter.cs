@@ -9,7 +9,7 @@ namespace Kebabvognen
 {
     public class SQLAdapter : DalAdapter
     {
-        private string connectionString = @"Persist Security Info=False;Integrated Security=true;Initial Catalog=Kebabvogn;server=(localdb)\MSSQLLocalDB;Connection Timeout=3000";
+        private string connectionString = @"Persist Security Info=False;Integrated Security=true;Initial Catalog=Kebabvogn;server=localhost\SQLEXPRESS;Connection Timeout=3000";
         private bool running;
 
         public SQLAdapter()
@@ -111,6 +111,28 @@ namespace Kebabvognen
             }
             return reviews.ToArray();
         }
+
+        public override Review[] GetNewestReviews(int limit)
+        {
+            SqlDataReader reader = Query("SELECT top " + limit + " * FROM Reviews ORDER BY ReviewDate DESC");
+            List<Review> reviews = new List<Review>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string reviewerName = reader.GetString(1);
+                    byte rating = reader.GetByte(2);
+                    string description = reader.GetString(3);
+                    DateTime reviewDate = reader.GetDateTime(4);
+                    Review review = new Review(id, reviewerName, rating, description, reviewDate);
+                    reviews.Add(review);
+                }
+            }
+            return reviews.ToArray();
+        }
+
+
 
         public override Employee[] GetEmployees()
         {

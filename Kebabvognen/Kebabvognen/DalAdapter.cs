@@ -13,6 +13,7 @@ namespace Kebabvognen
         public abstract Menu[] GetMenus();
         public abstract OpeningHours[] GetOpeningHours();
         public abstract Review[] GetReviews();
+        public abstract Review[] GetNewestReviews(int limit);
         public abstract Employee[] GetEmployees();
 
         public abstract void AddMenu(Menu menu);

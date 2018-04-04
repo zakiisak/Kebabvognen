@@ -26,6 +26,13 @@ namespace Kebabvognen
             return adapter.GetMenus();
         }
 
+        public static Review[] Get5NewestReviews()
+        {
+            AssertStart();
+            return adapter.GetNewestReviews(5);
+        }
+
+
         public static OpeningHours[] GetOpeningHours()
         {
             AssertStart();
