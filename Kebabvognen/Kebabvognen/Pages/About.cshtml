@@ -9,20 +9,21 @@
 @{
     Menu[] menus = AdapterManager.GetMenus();
     for (int i = 0; i < menus.Length; i++)
+    {
+
+        Menu menu = menus[i];
+        <img src="@menu.ImageUrl" style="width:250px;height:250px;" />
+
+        <ul>
+
+            @for (int k = 0; k < menu.Ingredients.Count; k++)
             {
-
-            Menu menu = menus[i];
-            <img src="@menu.ImageUrl" style="width:250px;height:250px;" />
-
-            <ul>
-                
-                @for (int k = 0; k < menu.Ingredients.Count; k++)
-                {
                 <li>@menu.Ingredients[k].Name</li>
-                }
-            </ul>
+            }
+        </ul>
 
-        }
+    }
 }
-<img src="~/images/kebab.jpg" alt="Recep" style="width:250px;height:250px;" />
-<img src="~/images/durum.jpg" alt="Recep" style="width:250px;height:250px;" />
+
+    <img src="~/images/kebab.jpg" alt="Recep" style="width:250px;height:250px;" />
+    <img src="~/images/durum.jpg" alt="Recep" style="width:250px;height:250px;" />

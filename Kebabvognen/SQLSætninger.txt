@@ -57,7 +57,7 @@ INSERT INTO Staff VALUES ('Recep', '1990-05-08', '2016-11-17');
 
 INSERT INTO Menu VALUES ('Pita', 25, '~/images/kebab.jpg');
 INSERT INTO Menu VALUES ('Durum', 25, '~/images/durum.jpg');
-INSERT INTO Menu VALUES ('Drikkevarer', 10, 'drikkevarer.jpg');
+INSERT INTO Menu VALUES ('Drikkevarer', 10, '~/images/drikkevarer.jpg');
 
 INSERT INTO Ingredients VALUES ('Hvedebrød', 1);
 INSERT INTO Ingredients VALUES ('Kebabkød (indh: hvede, mælk, selleri og soja)', 1);
