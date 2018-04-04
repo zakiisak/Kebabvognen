@@ -14,7 +14,9 @@ CREATE TABLE Staff (
 	ID INTEGER PRIMARY KEY IDENTITY(1, 1) NOT NULL,
     Name varchar(50) NOT NULL,
     Born DATE,
-    EmploymentDate DATE
+    EmploymentDate DATE,
+	phoneNumber varchar(30),
+	profileUrl varchar(300)
 );
 
 CREATE TABLE Menu (
@@ -39,6 +41,13 @@ CREATE TABLE Reviews (
     ReviewDate DATE NOT NULL
 );
 
+CREATE TABLE Address (
+	ID INTEGER PRIMARY KEY IDENTITY(1, 1) NOT NULL,
+	city varchar(50), 
+	zipcode integer,
+	billingAddress varchar(60)
+);
+
 
 
 --Add Data
@@ -52,7 +61,7 @@ INSERT INTO OpeningHours VALUES (6, '10:00:00', '19:00:00');
 INSERT INTO OpeningHours VALUES (7, NULL, NULL);
 
 
-INSERT INTO Staff VALUES ('Recep', '1990-05-08', '2016-11-17');
+INSERT INTO Staff VALUES ('Recep', '1990-05-08', '2016-11-17', '+45 60 53 35 44', '~/images/Recep.jpeg');
 --Missing the other
 
 INSERT INTO Menu VALUES ('Pita', 25, '~/images/kebab.jpg');
@@ -86,3 +95,5 @@ INSERT INTO Ingredients VALUES ('Fanta', 3);
 INSERT INTO Reviews VALUES ('Allan Nørfelt', 4, 'God og hurtig kebab. Smag for pengene!', '2017-08-21');
 INSERT INTO Reviews VALUES ('Sissel Shulz', 2, 'Dårlig hygiejne', '2017-10-28');
 INSERT INTO Reviews VALUES ('Jonas Sørensen', 5, 'Må prøves! Bedste kebab jeg i mit liv har smagt!', '2018-02-15');
+
+INSERT INTO Address VALUES ('Ringsted', 4100, 'Huginsvej 2 B');

@@ -3,10 +3,33 @@
 @{
     Layout = "~/Pages/_AdminLayout.cshtml";
     ViewData["Title"] = "Home page";
+
+    string formData = System.Web.HttpUtility.UrlDecode(Request.QueryString.Value);
+    if (formData.Length > 10) //5 is just a random number between 0 and 20
+    {
+        formData = formData.Substring(6);
+        string[] elementSplitter = formData.Split('^');
+        for (int i = 0; i < elementSplitter.Length; i++)
+        {
+            string[] fieldSplitter = elementSplitter[i].Split('¨');
+            string[] dbInfoSplitter = fieldSplitter[0].Split(' ');
+            string table = dbInfoSplitter[0];
+            string id = dbInfoSplitter[1];
+            string columnName = dbInfoSplitter[2];
+            string newValue = fieldSplitter[1];
+            AdapterManager.ChangeColumn(table, columnName, int.Parse(id), newValue);
+
+        }
+
+        Response.Redirect(Request.Path.Value);
+    }
+
+
 }
 
 <br />
 <h2>Åbningstider</h2>
+<p></p>
 @{
     OpeningHours[] hours = AdapterManager.GetOpeningHours();
     <table class="table">
@@ -34,11 +57,11 @@
 <h2>Menu</h2>
 @{
     Menu[] menus = AdapterManager.GetMenus();
-    
+
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Id</th>
+                <th scope="col">ID</th>
                 <th scope="col">Navn</th>
                 <th scope="col">Pris</th>
                 <th scope="col">Billede</th>
@@ -49,7 +72,7 @@
             {
                 Menu menu = menus[i];
                 <tr>
-                    <th id="Menu @menu.Id ID" class="editable" contenteditable="true" scope="row">@menu.Id</th>
+                    <th scope="row">@menu.Id</th>
                     <td id="Menu @menu.Id Name" class="editable" contenteditable="true">@menu.Name</td>
                     <td id="Menu @menu.Id Price" class="editable" contenteditable="true">@menu.Price</td>
                     <td id="Menu @menu.Id imageUrl" class="editable" contenteditable="true">@menu.ImageUrl</td>
@@ -59,9 +82,92 @@
     </table>
 }
 
-    <form method="post" runat="server">
-        <asp:button ID="RequirePostBackScriptLink" type="button" onclick="javascript:__doPostBack('saveChanges',changedElements)" class="btn btn-default" runat="server">Save Changes</asp:button>
-    </form>
+<h2>Ingredients</h2>
+@{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Tilhørende Menu</th>
+                <th scope="col">Navn</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < menus.Length; i++)
+            {
+                Menu menu = menus[i];
+                for (int k = 0; k < menu.Ingredients.Count; k++)
+                {
+                    Ingredient ingredient = menu.Ingredients[k];
+                    <tr>
+                        <th scope="row">@menu.Name</th>
+                        <td id="Ingredients @ingredient.Id Name" class="editable" contenteditable="true">@ingredient.Name</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
+
+<h2>Staff</h2>
+@{
+    Employee[] employees = AdapterManager.GetEmployees();
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Navn</th>
+                <th scope="col">Født</th>
+                <th scope="col">Ansat</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < employees.Length; i++)
+            {
+                Employee employee = employees[i];
+                <tr>
+                    <th scope="row">@employee.Id</th>
+                    <td id="Staff @employee.Id Name" class="editable" contenteditable="true">@employee.Name</td>
+                    <td id="Staff @employee.Id Born" class="editable" contenteditable="true">@employee.Born</td>
+                    <td id="Staff @employee.Id EmploymentDate" class="editable" contenteditable="true">@employee.Employed</td>
+                    <td id="Staff @employee.Id phoneNumber" class="editable" contenteditable="true">@employee.Phone</td>
+                    <td id="Staff @employee.Id profileUrl" class="editable" contenteditable="true">@employee.ProfileUrl</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<h2>Address</h2>
+@{
+    Address[] addresses = AdapterManager.GetAddresses();
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">By</th>
+                <th scope="col">Postnummer</th>
+                <th scope="col">Vej</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < addresses.Length; i++)
+            {
+                Address address = addresses[i];
+                <tr>
+                    <th scope="row">@address.Id</th>
+                    <td id="Address @address.Id city" class="editable" contenteditable="true">@address.City</td>
+                    <td id="Address @address.Id zipcode" class="editable" contenteditable="true">@address.ZipCode</td>
+                    <td id="Address @address.Id billingAddress" class="editable" contenteditable="true">@address.BillingAddress</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<form id="changeForm" method="post">
+    <p style="display: none" id="data" name="data"></p>
+    <button type="button" onclick="saveChanges()" class="btn btn-default">Save Changes</button>
+</form>
 <script>
     var changedElements = {};
     var elements = document.getElementsByClassName('editable');
@@ -77,32 +183,32 @@
 
     function saveChanges() {
         console.log("hejsa!");
-        for (var i = 0; i < changedElements.length; i++) {
-            
+        var result = "";
+        var count = 0;
+
+        for (var element in changedElements) {
+            count++;
         }
+
+        var counter = 0;
+        for (var element in changedElements) {
+            result += element + '¨' + document.getElementById(element).innerHTML;
+            if (counter < count - 1) {
+                result += '^';
+            }
+            counter++;
+        }
+        console.log("Changed Elements Size: " + count);
+        console.log("result: " + result);
+
+        var url = window.location.href;
+        window.location.href += "?data=" + result;
+
+        /*
+        document.getElementById("data").innerHTML = result;
+        document.getElementById("changeForm").submit();
+        */
+
+
     }
 </script>
-
-<div ng-app="myapp" ng-controller="appctrl">
-    <label>Name:</label>
-    <edit-label value="name" type="text" value-changed="onValueChanged(value, done)">
-        <div></div>
-    </edit-label>
-    <!--   <br/><button ng-click="showVal()">scope name prop</button> -->
-    <script type="text/ng-template" id="edit-label.html">
-        <div class="edit-label">
-            <span ng-if="$ctrl.mode === 'View' || $ctrl.mode === 'Updating'" ng-class="['viewer', {updating: $ctrl.mode === 'Updating'}]" ng-click="$ctrl.onEdit()">
-                <span class="view-label">{{$ctrl.value}}</span>
-                <span class="overlay-edit-icon fa fa-pencil"></span>
-                <i class="overlay-spinner fa fa-spinner fa-spin"></i>
-            </span>
-            <div ng-if="$ctrl.mode === 'Edit'" class="editor">
-                <input type="text" ng-model="$ctrl.value" />
-                <div class="save-options">
-                    <button type="submit" class="submit" ng-click="$ctrl.onUpdate()"><i class="fa fa-check"></i></button>
-                    <button type="cancel" class="cancel" ng-click="$ctrl.cancelEdit()"><i class="fa fa-times"></i></button>
-                </div>
-            </div>
-        </div>
-    </script>
-</div>

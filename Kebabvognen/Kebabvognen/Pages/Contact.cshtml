@@ -28,6 +28,11 @@ function myMap() {
 
 
 <address>
-    Huginsvej 2 B, 4100 Ringsted <br />
-    +45 60 53 35 44
+    @{
+        Address address = AdapterManager.GetAddresses()[0];
+        string addressString = address.BillingAddress + ", " + address.ZipCode + ' ' + address.City;
+        string firstPhoneNumber = AdapterManager.GetEmployees()[0].Phone;
+    }
+    @addressString <br />
+    @firstPhoneNumber
 </address>
