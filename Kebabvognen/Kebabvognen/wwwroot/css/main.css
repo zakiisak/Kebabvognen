@@ -37,7 +37,7 @@
     filter: blur(10px) brightness(1.0);
 }
 
-h1, h2, h3, p
+h1, h2, h3
 {
     color: white;
     text-shadow: 1px 1px 2px #000;
@@ -45,9 +45,37 @@ h1, h2, h3, p
 
 .niceText
 {
-    color: white;
-    text-shadow: -20px -20px 4000px #000;
+    color: #CCC;
+}
 
+
+.rating3
+{
+    color: #0C0 !important;
+}
+
+.rating2
+{
+    color: #6C0 !important;
+}
+
+.rating1
+{
+    color: #CC0 !important;
+}
+
+.rating0
+{
+    color: #C00 !important;
+}
+
+.rating0, .rating1, .rating2, .rating3
+{
+    text-shadow:
+   -1px -1px 2 #000,
+    1px -1px 2 #000,
+    -1px 1px 2 #000,
+     1px 1px 2 #000;
 }
 
 footer
@@ -56,6 +84,15 @@ footer
     text-shadow: 1px 1px 1px #000;
 }
 
+
+.sweet_back
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+}
 
 .smaller
 {
@@ -68,3 +105,10 @@ footer
 }
 
 .star-rating .fa-star{color: yellow;}
+
+.authorText
+{
+    padding: 0;
+    font-size: 0.25em;
+    color: white;
+}

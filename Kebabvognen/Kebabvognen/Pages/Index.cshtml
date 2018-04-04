@@ -28,18 +28,19 @@
         for (int i = 0; i < reviews.Length; i++)
         {
             string active = i == 0 ? "active" : "";
+            string ratingStyle = "rating" + (int)(((float)reviews[i].Rating / 5.0f) * 3.0f);
             <div class="item @active">
             
                 <img src="~/images/kebabvognen.jpg" style="width: 100%; height: auto;" />
                 <div class="carousel-caption" role="option">
-                    <div>
-                        <p class="niceText">
+                    <div class="sweet_back">
+                        <p class="@ratingStyle">
                             @reviews[i].Description
                         </p>
                         @{int diff = 5 - reviews[i].Rating;
                             for (int k = 0; k < reviews[i].Rating; k++)
                             {
-                                <span class="glyphicon glyphicon-star"> </span>
+                                <span class="glyphicon glyphicon-star fa-star"> </span>
                             }
                             for(int k = 0; k < diff; k++)
                             {
