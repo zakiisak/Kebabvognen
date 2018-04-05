@@ -5,7 +5,7 @@
 }
 
 <br />
-<div id="myCarousel" class="smaller carousel slide center-block rounded" data-ride="carousel" data-interval="6000">
+<div id="myCarousel" class="smaller carousel slide center-block rounded" data-ride="carousel" data-interval="6000" style="background: url('images/kebabvognen.jpg')">
     <ol class="carousel-indicators">
         @{
             Review[] reviews = AdapterManager.Get5NewestReviews();
@@ -30,8 +30,7 @@
             string active = i == 0 ? "active" : "";
             string ratingStyle = "rating" + (int)(((float)reviews[i].Rating / 5.0f) * 3.0f);
             <div class="item @active">
-            
-                <img src="~/images/kebabvognen.jpg" style="width: 100%; height: auto;" />
+                <img src="~/images/kebabvognen.jpg" style="opacity: 0; width: 100%; height: auto;" />
                 <div class="carousel-caption" role="option">
                     <div class="sweet_back">
                         <p class="@ratingStyle">

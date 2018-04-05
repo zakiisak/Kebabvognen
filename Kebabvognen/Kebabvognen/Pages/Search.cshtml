@@ -1,0 +1,73 @@
+﻿@page
+@model SearchModel
+
+<div class="col-lg-12">
+<div class="col-lg-1"> </div>
+<div class="col-lg-10 center-block contentBackground">
+    <h2 class="text-header">Søg Resultater</h2>
+    <hr />
+@{
+
+    ViewData["Title"] = "Search";
+    string searchData = System.Web.HttpUtility.UrlDecode(Request.QueryString.Value);
+    if (searchData.Length > 7) //5 is just a random number between 0 and 20
+    {
+        searchData = searchData.Substring(8);
+        System.Diagnostics.Debug.WriteLine("Search Data: " + searchData);
+        Menu[] menus = AdapterManager.SearchMenus(searchData);
+        searchData = searchData.ToLower();
+        for (int i = 0; i < menus.Length; i++)
+        {
+
+            Menu menu = menus[i];
+            <h3>@menu.Name</h3>
+            <h3>kr. @menu.Price,-</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="rounded" src="@menu.ImageUrl" style="width:250px;height:250px;" />
+                </div>
+                <div class="col-md-8">
+                    @{
+                        if (menu.Name.ToLower().StartsWith("drik"))
+                        {
+                            <h3>Herunder</h3>
+                        }
+                        else
+                        {
+                            <h3>Ingredienser</h3>
+                        }
+                    }
+                    <hr />
+                    <ul>
+
+                        @for (int k = 0; k < menu.Ingredients.Count; k++)
+                        {
+                            int charIndex = 0;
+                            string ingredientName = menu.Ingredients[k].Name;
+                            if(ingredientName.ToLower().Contains(searchData))
+                            {
+                                string[] splitted = System.Text.RegularExpressions.Regex.Split(ingredientName, searchData, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                                <li>
+                                @for(int j = 0; j < splitted.Length; j++){<span class="ingredientItem">@splitted[j]</span>if(j < splitted.Length - 1){<span class="ingredientItem searchIndicator">@searchData</span>}}
+                                </li>
+                            }
+                            else
+                            {
+                                <li><span class="ingredientItem">@menu.Ingredients[k].Name</span></li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+
+
+            <br />
+            <br />
+        }    
+            
+    }
+
+}
+
+</div>
+</div>
