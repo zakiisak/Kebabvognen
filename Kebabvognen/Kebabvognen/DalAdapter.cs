@@ -33,6 +33,8 @@ namespace Kebabvognen
         public abstract void AddEmployee(Employee employee);
         public abstract void RemoveEmployee(int id);
 
+        public abstract Menu[] SearchMenus(string ingredientNamePart);
+
         public abstract void ChangeColumn(string table, string column, string idColumnName, int id, object value);
 
 

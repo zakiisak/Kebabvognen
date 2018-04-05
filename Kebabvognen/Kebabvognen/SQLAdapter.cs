@@ -358,5 +358,29 @@ namespace Kebabvognen
             reader.Close();
             return null;
         }
+
+        public override Menu[] SearchMenus(string ingredientNamePart)
+        {
+            SqlDataReader reader = Query("SELECT * FROM Ingredients WHERE Name LIKE '%" + ingredientNamePart + "%'");
+            HashSet<int> menuIds = new HashSet<int>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int menuId = reader.GetInt32(2);
+                    menuIds.Add(menuId);
+                }
+            }
+            reader.Close();
+
+            List<Menu> menus = new List<Menu>();
+            foreach(int id in menuIds)
+            {
+                Menu menu = GetMenu(id);
+                if (menu != null)
+                    menus.Add(menu);
+            }
+            return menus.ToArray();
+        }
     }
 }

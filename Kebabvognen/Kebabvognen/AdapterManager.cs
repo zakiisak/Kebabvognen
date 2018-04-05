@@ -104,6 +104,12 @@ namespace Kebabvognen
             }
         }
 
+        public static Menu[] SearchMenus(string search)
+        {
+            AssertStart();
+            return adapter.SearchMenus(search);
+        }
+
         public static void Dispose()
         {
             if(adapter.IsRunning())

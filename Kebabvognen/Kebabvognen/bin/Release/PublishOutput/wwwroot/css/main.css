@@ -174,14 +174,3 @@ hr
 {
     text-align: center;
 }
-
-.searchInput
-{
-    margin-top: 8px;
-}
-
-.searchIndicator {
-    background-color: rgba(32, 220, 64, 0.9);
-    padding: 0;
-    margin: 0;
-}

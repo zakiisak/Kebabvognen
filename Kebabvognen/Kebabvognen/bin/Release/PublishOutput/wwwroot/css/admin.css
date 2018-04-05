@@ -1,0 +1,87 @@
+.edit-label {
+  display: inline
+}
+
+.edit-label .viewer {
+  position: relative;
+  box-shadow: 0 0 0 0 transparent;
+  border-radius: 2px;
+  padding: 2px 50px 2px 5px;
+  box-sizing: border-box;
+  transition: box-shadow 150ms ease-in 0ms;
+  cursor: text;
+}
+
+.edit-label .viewer:hover {
+  box-shadow: 0 0 0 1px #ccc;
+}
+
+.edit-label .viewer .overlay-edit-icon {
+  box-sizing: border-box;
+  opacity: 0;
+  background-color: #f0f0f0;
+  background-repeat: no-repeat;
+  background-position: 4px 4px;
+  border-left: 1px solid #ccc;
+  bottom: 0;
+  height: auto;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px;
+  z-index: -1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.edit-label .viewer:hover .overlay-edit-icon {
+  opacity: 1;
+  z-index: auto;
+  transition: opacity 150ms ease-in 0ms;
+}
+
+.edit-label .viewer .overlay-spinner {
+  display: none;
+  box-sizing: border-box;
+  bottom: 0;
+  height: auto;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.edit-label .viewer.updating .overlay-spinner {
+  display: block;
+  margin-right: 1px;
+}
+
+.edit-label .viewer.updating {
+  background-color: #eeeeee;
+  border: 1px solid #dddddd;
+  pointer-events: none;
+}
+
+.edit-label .viewer.updating .view-label {
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 1);
+  color: #888888;
+}
+
+.edit-label .editor {
+  display: inline;
+  position: relative;
+}
+
+.edit-label .editor .save-options {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 3px 6px rgba(111, 111, 111, 0.2);
+  outline: none;
+  padding: 3px;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
