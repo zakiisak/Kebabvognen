@@ -3,11 +3,23 @@
 @{
     ViewData["Title"] = "Find os!";
 }
-<h2>@ViewData["Title"]</h2>
 
 
-<br />
-<div id="map" style="width:400px;height:400px">Vi bor her: </div>
+<div class="col-lg-12">
+<div class="col-lg-1"> </div>
+<div class="col-lg-10 center-block contentBackground text-center">
+<h2 class="text-header">Find os</h2>
+<hr />
+    <address>
+    @{
+        Address address = AdapterManager.GetAddresses()[0];
+        string addressString = address.BillingAddress + ", " + address.ZipCode + ' ' + address.City;
+        string firstPhoneNumber = AdapterManager.GetEmployees()[0].Phone;
+    }
+    <p>@addressString - 
+    @firstPhoneNumber </p>
+</address>
+<div id="map" style="width:400px;height:400px" class="center-block">Vi bor her: </div>
     <script>
 function myMap() {
   var mapCanvas = document.getElementById("map");
@@ -26,13 +38,5 @@ function myMap() {
 <p> Vi er på den røde hoppende prik! </p>
 <br />
 
-
-<address>
-    @{
-        Address address = AdapterManager.GetAddresses()[0];
-        string addressString = address.BillingAddress + ", " + address.ZipCode + ' ' + address.City;
-        string firstPhoneNumber = AdapterManager.GetEmployees()[0].Phone;
-    }
-    @addressString <br />
-    @firstPhoneNumber
-</address>
+</div>
+</div>

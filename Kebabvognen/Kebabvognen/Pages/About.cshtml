@@ -4,23 +4,62 @@
     ViewData["Title"] = "Menu";
 }
 
-<br />
-<p>Vores menu består primært af vores lækre kebab i pizza brød eller lavet som en durüm.</p>
-@{
-    Menu[] menus = AdapterManager.GetMenus();
-    for (int i = 0; i < menus.Length; i++)
-            {
+<div class="col-lg-12">
+<div class="col-lg-1"> </div>
+<div class="col-lg-10 center-block contentBackground">
+    <h2 class="text-header">Menu</h2>
+    <p>Menuen består primært af vores lækre kebab i pita brød eller lavet som en durüm.</p>
+    <hr />
+
+    @{
+        Menu[] menus = AdapterManager.GetMenus();
+        for (int i = 0; i < menus.Length; i++)
+        {
 
             Menu menu = menus[i];
-            <img src="@menu.ImageUrl" style="width:250px;height:250px;" />
+            /*
+            <div class="row">
+            <div class="col-md-4">
+                <img src="@menu.ImageUrl" style="width:250px;height:250px;" />
+            </div>
+            <div class="col-md-4"> <h3>@menu.Name</h3></div>
+            <div class="col-md-4"><h3>kr. @menu.Price,-</h3></div>
+            </div>
+            */
+            <h3>@menu.Name</h3>
+            <h3>kr. @menu.Price,-</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="rounded" src="@menu.ImageUrl" style="width:250px;height:250px;" />
+                </div>
+                <div class="col-md-8">
+                    @{
+                        if (menu.Name.ToLower().StartsWith("drik"))
+                        {
+                            <h3>Herunder</h3>
+                        }
+                        else
+                        {
+                            <h3>Ingredienser</h3>
+                        }
+                    }
+                    <hr />
+                    <ul>
 
-            <ul>
-                
-                @for (int k = 0; k < menu.Ingredients.Count; k++)
-                {
-                <li>@menu.Ingredients[k].Name</li>
-                }
-            </ul>
+                        @for (int k = 0; k < menu.Ingredients.Count; k++)
+                        {
+                            <li><span class="ingredientItem">@menu.Ingredients[k].Name</span></li>
+                        }
+                    </ul>
+                </div>
+            </div>
 
+
+            <br />
+            <br />
         }
-}
+    }
+
+</div>
+<div class="col-lg-1"> </div>
+</div> 

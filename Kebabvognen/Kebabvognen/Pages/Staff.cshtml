@@ -3,28 +3,40 @@
 @{
     ViewData["Title"] = "Personale";
 }
-<h2>@ViewData["Title"]</h2>
-<br />
+<div class="col-lg-12">
+<div class="col-lg-1"> </div>
+<div class="col-lg-10 center-block contentBackground">
+    <h2 class="text-header">@ViewData["Title"]</h2>
+    <hr />
+    <br />
 
-@{
-    Employee[] staff = AdapterManager.GetEmployees();
+    @{
+        Employee[] staff = AdapterManager.GetEmployees();
 
-    foreach (Employee employee in staff)
-    {
-        DateTime now = DateTime.UtcNow;
-        int age = now.Year - employee.Born.Year;
-        if (employee.Born > now.AddYears(-age)) { age--; }
-        <img src="@employee.ProfileUrl" alt="@employee.Name" style="width:160px;height:250px;" />
-        <h4>@employee.Name</h4>
-        <h4>@age år</h4>
+        foreach (Employee employee in staff)
+        {
+            DateTime now = DateTime.UtcNow;
+            int age = now.Year - employee.Born.Year;
+            if (employee.Born > now.AddYears(-age)) { age--; }
+            <div class="row">
+                <div class="col-md-3">
+                    <img class="profile" src="@employee.ProfileUrl" alt="@employee.Name" style="width:160px;height:250px;" />
+                </div>
+                <div class="col-md-9 profileText">
+                    <h3>@employee.Name</h3>
+                    <h3>@age år</h3>
+                    <h3>Tlf: @employee.Phone</h3>
+                </div>
+            </div>
+        }
     }
-}
-<br />
-<br />
-<br />
-<abbr title="Phone">Telefon: </abbr>
-@staff[0].Phone
+    <br />
+    <br />
+    <br />
 
-<address>
-    <strong>Mail:</strong> <a href="mailto:Kebabvognen@dejligkebab.dk">Kebabvognen@dejligkebab.dk</a><br />
-</address>
+    <address>
+        <p><strong>Mail:</strong> <a href="mailto:Kebabvognen@dejligkebab.dk">Kebabvognen@dejligkebab.dk</a></p><br />
+    </address>
+
+</div>
+</div>
