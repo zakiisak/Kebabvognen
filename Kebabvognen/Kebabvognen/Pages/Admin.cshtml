@@ -201,7 +201,8 @@
         console.log("Changed Elements Size: " + count);
         console.log("result: " + result);
 
-        var url = window.location.href;
+        var url = window.location.href.split('?')[0];
+        //url = 
         window.location.href += "?data=" + result;
 
         /*

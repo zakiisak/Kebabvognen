@@ -38,7 +38,7 @@ CREATE TABLE Reviews (
     ReviewerName varchar(50),
     Rating TINYINT NOT NULL,
     Description varchar(200),
-    ReviewDate DATE NOT NULL
+    ReviewDate DATE NOT NULL DEFAULT GETDATE()
 );
 
 CREATE TABLE Address (
@@ -61,12 +61,12 @@ INSERT INTO OpeningHours VALUES (6, '10:00:00', '19:00:00');
 INSERT INTO OpeningHours VALUES (7, NULL, NULL);
 
 
-INSERT INTO Staff VALUES ('Recep', '1990-05-08', '2016-11-17', '+45 60 53 35 44', '~/images/Recep.jpeg');
+INSERT INTO Staff VALUES ('Recep', '1990-05-08', '2016-11-17', '+45 60 53 35 44', 'images/Recep.jpeg');
 --Missing the other
 
-INSERT INTO Menu VALUES ('Pita', 25, '~/images/kebab.jpg');
-INSERT INTO Menu VALUES ('Durum', 25, '~/images/durum.jpg');
-INSERT INTO Menu VALUES ('Drikkevarer', 10, '~/images/drikkevarer.jpg');
+INSERT INTO Menu VALUES ('Pita', 25, 'images/kebab.jpg');
+INSERT INTO Menu VALUES ('Durum', 25, 'images/durum.jpg');
+INSERT INTO Menu VALUES ('Drikkevarer', 10, 'images/drikkevarer.jpg');
 
 INSERT INTO Ingredients VALUES ('Hvedebrød', 1);
 INSERT INTO Ingredients VALUES ('Kebabkød (indh: hvede, mælk, selleri og soja)', 1);

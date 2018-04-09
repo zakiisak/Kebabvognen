@@ -85,3 +85,11 @@
   right: 0;
   z-index: 1;
 }
+
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    position: relative;
+    top: -11px;
+}

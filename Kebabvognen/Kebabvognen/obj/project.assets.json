@@ -93,6 +93,27 @@
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
         }
       },
+      "Microsoft.AspNet.WebPages.Data/2.0.20710": {
+        "type": "package",
+        "compile": {
+          "lib/net40/WebMatrix.Data.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebMatrix.Data.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages.WebData/2.0.20710": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.Data": "[2.0.20710, 2.1.0)"
+        },
+        "compile": {
+          "lib/net40/WebMatrix.WebData.dll": {}
+        },
+        "runtime": {
+          "lib/net40/WebMatrix.WebData.dll": {}
+        }
+      },
       "Microsoft.AspNetCore/2.0.2": {
         "type": "package",
         "dependencies": {
@@ -4732,6 +4753,12 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "WebMatrix.WebData/2.0.30506": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebPages.WebData": "2.0.20710"
+        }
+      },
       "WindowsAzure.Storage/8.1.4": {
         "type": "package",
         "dependencies": {
@@ -4817,6 +4844,28 @@
         "lib/netstandard1.6/Microsoft.AI.DependencyCollector.xml",
         "microsoft.applicationinsights.dependencycollector.2.4.1.nupkg.sha512",
         "microsoft.applicationinsights.dependencycollector.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebPages.Data/2.0.20710": {
+      "sha512": "PTwS5C1vF69FDikWhUkJZ4qb96yxtdVuVR90Hjt7e/GDNVOeR7tXMYWHs9cPP0v35EiO+V6BUj1c8dNCUXW7Ag==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages.data/2.0.20710",
+      "files": [
+        "lib/net40/WebMatrix.Data.dll",
+        "lib/net40/WebMatrix.Data.xml",
+        "microsoft.aspnet.webpages.data.2.0.20710.nupkg.sha512",
+        "microsoft.aspnet.webpages.data.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebPages.WebData/2.0.20710": {
+      "sha512": "BZsx1iI2qZ9c21QKD3KAk7BGrGQ3gkGw8a7AdkmDNJoK+RyEcEy46lyzpyiD7BkVKvlszO7er2m2nR2NWK6u9Q==",
+      "type": "package",
+      "path": "microsoft.aspnet.webpages.webdata/2.0.20710",
+      "files": [
+        "lib/net40/WebMatrix.WebData.dll",
+        "lib/net40/WebMatrix.WebData.xml",
+        "microsoft.aspnet.webpages.webdata.2.0.20710.nupkg.sha512",
+        "microsoft.aspnet.webpages.webdata.nuspec"
       ]
     },
     "Microsoft.AspNetCore/2.0.2": {
@@ -12506,6 +12555,15 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "WebMatrix.WebData/2.0.30506": {
+      "sha512": "kDz6OjnVNm/asletyqpHmb0y/56KduvxWhi6KJdAgnT45LZPu6IUETXNISA1icfoRwBWrUirQxAZw6JwhYrqoQ==",
+      "type": "package",
+      "path": "webmatrix.webdata/2.0.30506",
+      "files": [
+        "webmatrix.webdata.2.0.30506.nupkg.sha512",
+        "webmatrix.webdata.nuspec"
+      ]
+    },
     "WindowsAzure.Storage/8.1.4": {
       "sha512": "W6ZZ0/o7+3Qb77mRAQyLjPudHG3OMeeQ4p9yY13PUdJArmRCx2cLMm5F4tpIjJXxzHC0ew0oK7DMDGILMdfCnw==",
       "type": "package",
@@ -12532,32 +12590,30 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.6",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "WebMatrix.WebData >= 2.0.30506"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zbclikam1\\.nuget\\packages\\": {},
+    "C:\\Users\\zbcisand3\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\zbclikam1\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\Kebabvognen.csproj",
+      "projectUniqueName": "C:\\Users\\zbcisand3\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\Kebabvognen.csproj",
       "projectName": "Kebabvognen",
-      "projectPath": "C:\\Users\\zbclikam1\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\Kebabvognen.csproj",
-      "packagesPath": "C:\\Users\\zbclikam1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zbclikam1\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\obj\\",
+      "projectPath": "C:\\Users\\zbcisand3\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\Kebabvognen.csproj",
+      "packagesPath": "C:\\Users\\zbcisand3\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zbcisand3\\Documents\\GitHub\\Kebabvognen\\Kebabvognen\\Kebabvognen\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\zbclikam1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zbcisand3\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -12590,6 +12646,10 @@
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
+          },
+          "WebMatrix.WebData": {
+            "target": "Package",
+            "version": "[2.0.30506, )"
           }
         },
         "imports": [
@@ -12599,5 +12659,27 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebPages.Data 2.0.20710' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebPages.Data",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebPages.WebData 2.0.20710' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebPages.WebData",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,17 @@
+C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=Kebabvognen
+--content-root=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\About.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\Admin.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\Contact.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\Error.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\Index.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\Rate.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\Search.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\Staff.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\_AdminLayout.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\_Layout.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\_ValidationScriptsPartial.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\_ViewImports.cshtml
+--file=C:\Users\zbcisand3\Documents\GitHub\Kebabvognen\Kebabvognen\Kebabvognen\Pages\_ViewStart.cshtml

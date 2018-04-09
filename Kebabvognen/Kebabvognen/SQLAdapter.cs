@@ -66,7 +66,6 @@ namespace Kebabvognen
             return menus.ToArray();
         }
 
-
         private SqlDataReader Query(string command)
         {
             SqlConnection connection = new SqlConnection(connectionString);
