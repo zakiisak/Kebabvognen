@@ -104,6 +104,12 @@ namespace Kebabvognen
             }
         }
 
+        public static void AddReview(string name, int rating, string description)
+        {
+            Review review = new Review(0, name, (byte) rating, description, DateTime.Now);
+            adapter.AddReview(review);
+        }
+
         public static Menu[] SearchMenus(string search)
         {
             AssertStart();

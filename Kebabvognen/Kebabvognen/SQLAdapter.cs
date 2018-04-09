@@ -272,7 +272,9 @@ namespace Kebabvognen
 
         public override void AddReview(Review review)
         {
-            throw new NotImplementedException();
+            string queryString = "INSERT INTO Reviews (ReviewerName, Rating, Description) VALUES ('" + review.Name + "', " + review.Rating + ", '" + review.Description + "')";
+            System.Diagnostics.Debug.WriteLine(queryString);
+            Query(queryString);
         }
 
         public override void AddEmployee(Employee employee)

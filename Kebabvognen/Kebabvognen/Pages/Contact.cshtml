@@ -19,7 +19,7 @@
     <p>@addressString - 
     @firstPhoneNumber </p>
 </address>
-<div id="map" style="width:400px;height:400px" class="center-block">Vi bor her: </div>
+<div id="map" style="width:400px;height:400px" class="center-block rounded">Vi bor her: </div>
     <script>
 function myMap() {
   var mapCanvas = document.getElementById("map");
@@ -37,6 +37,36 @@ function myMap() {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdWZ2lKQ0NzIBpWSS7l-xaUrxeHrLY4eI&callback=myMap"></script>
 <p> Vi er på den røde hoppende prik! </p>
 <br />
+
+<h3>Åbningstider</h3>
+@{ 
+    OpeningHours[] hours = AdapterManager.GetOpeningHours();
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Dag</th>
+                <th scope="col" class="text-center">Fra</th>
+                <th scope="col" class="text-center">Til</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < hours.Length; i++)
+            {
+                OpeningHours dayHours = hours[i];
+                string from = dayHours.From.Days < 0 ? "Lukket" : dayHours.From.ToString().Substring(0, 5);
+                string to = dayHours.To.Days < 0 ? "Lukket" : dayHours.To.ToString().Substring(0, 5);
+                <tr>
+                    <th scope="row">@dayHours.GetDayString()</th>
+                    <td>@from</td>
+                    <td>@to</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+}
 
 </div>
 </div>

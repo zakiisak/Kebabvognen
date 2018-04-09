@@ -1,0 +1,85 @@
+﻿@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Bedøm Kebabvognen";
+}
+@section Styles
+    {
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/js/star-rating.min.js"></script>
+}
+
+<div class="col-lg-12">
+    <div class="col-lg-1"> </div>
+    <div class="col-lg-10 center-block contentBackground">
+        <h2 class="text-header">@ViewData["Title"]</h2>
+        <hr />
+        <br />
+
+        @{
+            string searchData = System.Web.HttpUtility.UrlDecode(Request.QueryString.Value);
+            string name = "";
+            int rating = 3;
+            string description = "";
+
+            if(searchData.Length > 9)
+            {
+                searchData = searchData.Substring(1);
+                string[] dataSplitter = searchData.Split('&');
+                name = dataSplitter[0].Split('=')[1];
+                rating = int.Parse(dataSplitter[1].Split('=')[1]);
+                description = dataSplitter[2].Split('=')[1];
+                
+                AdapterManager.AddReview(name, rating, description);
+                <div class="alert alert-success">
+                    <strong>Anmeldelse Sendt!</strong>
+                </div>
+                
+            }
+
+           
+
+
+        }
+        <br />
+
+        <form class="form-horizontal">
+
+            <!-- Name input-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="name">Navn</label>
+                <div class="col-md-9">
+                    <input id="name" name="name" type="text" placeholder="Dit navn" class="form-control" value="@name" required>
+                </div>
+            </div>
+
+            <!-- Email input-->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="email">Vurdering</label>
+                <input id="input-1" name="rating" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="@rating">
+            </div>
+
+            <!-- Message body -->
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="message">Beskrivelse</label>
+                <div class="col-md-9">
+                    <textarea class="form-control" id="message" name="description" data-size="sm"  placeholder="Maden var fantastisk og..." rows="5" required>@description</textarea>
+                </div>
+            </div>
+
+            <!-- Form actions -->
+            <div class="form-group">
+                <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-primary btn-lg">Send</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<script>
+    $("#input-id").rating();
+</script>
